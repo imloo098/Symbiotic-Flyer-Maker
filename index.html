@@ -37,7 +37,7 @@
             font-family: var(--text-font);
             background: linear-gradient(135deg, #CDB296 0%, #A67B5B 100%);
             color: var(--dark);
-            min-height: 10vh;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -138,11 +138,8 @@
             font-weight: 700;
             text-align: center;
             color: #000000;
-            /* Adjust margin for centered title without logo */
             margin: 0 auto; 
         }
-
-        /* Removed .logo styles as it's being deleted from HTML */
 
         #displayCanvas,
         .thread-canvas,
@@ -390,69 +387,18 @@
             object-fit: cover;
         }
 
-        .template-option:hover,
-        .template-option:active {
-            border-color: var(--primary);
+        .template-option.active-template {
+            border: 4px solid var(--maroon);
+        }
+
+        .template-option:hover {
             transform: scale(1.05);
-            box-shadow: 0 6px 20px rgba(205, 178, 150, 0.3);
-        }
-
-        .template-option.active {
-            border-color: var(--primary);
-            transform: scale(1.05);
-            box-shadow: 0 6px 20px rgba(205, 178, 150, 0.3);
-        }
-
-        .template-option::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(205, 178, 150, 0.2);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .template-option.active::after,
-        .template-option:hover::after,
-        .template-option:active::after {
-            opacity: 1;
-        }
-
-        .template-selector::-webkit-scrollbar {
-            height: 5px;
-        }
-
-        .template-selector::-webkit-scrollbar-track {
-            background: rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-        }
-
-        .template-selector::-webkit-scrollbar-thumb {
-            background: var(--primary);
-            border-radius: 8px;
-        }
-
-        .thread-flyer {
-            width: 100%;
-            margin-bottom: 20px;
-            padding: 15px;
-            background: var(--light);
-            border-radius: 12px;
-        }
-
-        .thread-number {
-            font-weight: bold;
-            margin-bottom: 10px;
-            text-align: center;
         }
 
         @keyframes slideIn {
             0% {
                 opacity: 0;
-                transform: translateX(-20px);
+                transform: translateX(20px);
             }
 
             100% {
@@ -460,910 +406,503 @@
                 transform: translateX(0);
             }
         }
-
-        /* Coming Soon Styles */
-        .coming-soon-tab .container {
-            filter: blur(4px);
-            pointer-events: none;
-        }
-
-        .coming-soon-overlay {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
-            z-index: 10;
-            pointer-events: none;
-        }
-
-        .coming-soon-overlay h2 {
-            font-size: 48px;
-            font-weight: 700;
-            color: var(--dark);
-            margin: 0;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        @media (max-width: 768px) {
-            :root {
-                --text-size: 18px;
-                --name-size: 13px;
-                --name-bottom-margin: 15px;
-            }
-
-            body {
-                padding: 10px 5px;
-            }
-
-            nav {
-                flex-direction: row;
-                flex-wrap: nowrap;
-                overflow-x: auto;
-                gap: 8px;
-                padding: 12px;
-                justify-content: flex-start;
-                -webkit-overflow-scrolling: touch;
-            }
-
-            nav::-webkit-scrollbar {
-                height: 4px;
-            }
-
-            nav::-webkit-scrollbar-track {
-                background: rgba(0, 0, 0, 0.1);
-                border-radius: 2px;
-            }
-
-            nav::-webkit-scrollbar-thumb {
-                background: var(--primary);
-                border-radius: 2px;
-            }
-
-            nav button {
-                width: auto;
-                padding: 12px 16px;
-                font-size: 14px;
-                flex-shrink: 0;
-                white-space: nowrap;
-            }
-
-            .container {
-                padding: 20px;
-                max-width: 95%;
-            }
-
-            .header {
-                gap: 8px;
-                margin-bottom: 12px;
-                flex-direction: row;
-                align-items: center;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-
-            .app-title {
-                font-size: 24px;
-            }
-
-            /* Removed .logo styles */
-
-            .button-group {
-                flex-direction: column;
-                gap: 12px;
-            }
-
-            button {
-                padding: 16px;
-                font-size: 14px;
-                min-height: 48px;
-            }
-
-            .template-option {
-                min-width: 90px;
-                height: 60px;
-            }
-
-            .template-header {
-                min-width: 120px;
-                height: 60px;
-                font-size: 13px;
-            }
-
-            .input-group label {
-                font-size: 13px;
-            }
-
-            textarea,
-            input[type="text"],
-            input[type="number"],
-            input[type="file"] {
-                font-size: 13px;
-                padding: 12px;
-                min-height: 48px;
-            }
-
-            textarea {
-                height: 80px;
-                min-height: 80px;
-            }
-
-            input[type="text"],
-            input[type="number"],
-            input[type="file"] {
-                height: 48px;
-            }
-
-            .font-weight-option {
-                padding: 12px 16px;
-                font-size: 13px;
-                min-height: 48px;
-            }
-
-            .template-scroll {
-                gap: 8px;
-            }
-
-            .thread-flyer {
-                padding: 16px;
-            }
-
-            .coming-soon-overlay h2 {
-                font-size: 36px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            :root {
-                --text-size: 16px;
-                --name-size: 12px;
-                --name-bottom-margin: 12px;
-            }
-
-            body {
-                padding: 8px 4px;
-            }
-
-            .container {
-                padding: 16px;
-                max-width: 100%;
-            }
-
-            .app-title {
-                font-size: 20px;
-            }
-
-            /* Removed .logo styles */
-
-            nav button {
-                padding: 10px 12px;
-                font-size: 12px;
-                min-height: 44px;
-            }
-
-            .header {
-                gap: 6px;
-                flex-direction: row;
-                align-items: center;
-                flex-wrap: wrap;
-            }
-
-            .template-option {
-                min-width: 80px;
-                height: 50px;
-            }
-
-            .template-header {
-                min-width: 100px;
-                height: 50px;
-                font-size: 12px;
-            }
-
-            .input-group {
-                margin-bottom: 12px;
-            }
-
-            .font-weight-selector {
-                gap: 8px;
-                justify-content: center;
-            }
-
-            .font-weight-option {
-                padding: 10px 14px;
-                font-size: 12px;
-                flex: 1;
-                text-align: center;
-                min-height: 44px;
-            }
-
-            button {
-                padding: 14px;
-                font-size: 13px;
-                min-height: 48px;
-            }
-
-            input[type="range"] {
-                height: 5px;
-            }
-
-            input[type="range"]::-webkit-slider-thumb,
-            input[type="range"]::-moz-range-thumb {
-                width: 18px;
-                height: 18px;
-            }
-
-            .template-scroll {
-                gap: 6px;
-            }
-
-            .coming-soon-overlay h2 {
-                font-size: 28px;
-            }
-        }
     </style>
 </head>
 
 <body>
+
     <nav>
-        <button class="active" onclick="switchTab('id')"><i class="fas fa-id-card"></i> ID</button>
-        <button onclick="switchTab('tweet')"><i class="fas fa-feather-alt"></i> Tweet</button>
-        <button onclick="switchTab('thread')"><i class="fas fa-list-ul"></i> Thread</button>
+        <button class="tab-button active" data-tab="id"><i class="fas fa-id-card"></i> ID</button>
+        <button class="tab-button" data-tab="tweet"><i class="fab fa-twitter"></i> Tweet</button>
+        <button class="tab-button" data-tab="thread"><i class="fas fa-list"></i> Thread</button>
     </nav>
 
-    <div id="id-tab" class="tab-content active">
-        <div class="container">
-            <div class="header">
-                <h1 class="app-title">Symbiotic Flyer Maker - ID</h1>
-            </div>
+    <div id="id" class="tab-content active container">
+        <div class="header">
+            <h1 class="app-title">Symbiotic Flyer Maker - ID</h1>
+        </div>
 
-            <canvas id="idCanvas"></canvas>
+        <canvas id="idCanvas" width="500" height="500"></canvas>
 
-            <div class="input-group">
-                <label for="idUserName">Your Name</label>
-                <input type="text" id="idUserName" placeholder="Enter your name" value="">
-            </div>
+        <div class="input-group">
+            <label for="idName">Your Name</label>
+            <input type="text" id="idName" placeholder="Enter your name" oninput="drawIDCard()">
+        </div>
 
-            <div class="input-group">
-                <label for="profileImage">Upload Profile Picture</label>
-                <input type="file" id="profileImage" accept="image/*">
-            </div>
-            
-            <div class="button-group">
-                <button class="btn-primary" onclick="downloadIdImage()">
-                    <i class="fas fa-download"></i> Download Image
-                </button>
-                <button class="btn-secondary" onclick="shareIdToX()">
-                    <i class="fab fa-twitter"></i> Share to X
-                </button>
-            </div>
+        <div class="input-group">
+            <label for="profilePicture">Upload Profile Picture</label>
+            <input type="file" id="profilePicture" accept="image/*" onchange="drawIDCard()">
+        </div>
+        
+        <div class="button-group">
+            <button class="btn-primary" onclick="downloadImage('idCanvas', 'symbiotic_id')"><i class="fas fa-download"></i> Download Image</button>
+            <button class="btn-secondary" onclick="shareToX('idCanvas', 'ID')"><i class="fab fa-twitter"></i> Share to X</button>
         </div>
     </div>
 
-    <div id="tweet-tab" class="tab-content coming-soon-tab">
-        <div class="container">
-            <div class="header">
-                <h1 class="app-title">Symbiotic Flyer Maker - Tweet</h1>
-            </div>
-
-            <div class="template-selector">
-                <div class="template-scroll">
-                    <div class="template-header">New Logo Templates</div>
-                    <div class="template-option active" data-image="flyer4.jpg">
-                        <img src="flyer4.jpg" alt="New Logo Template 1">
-                    </div>
-                    <div class="template-option" data-image="flyer5.jpg">
-                        <img src="flyer5.jpg" alt="New Logo Template 2">
-                    </div>
-                    <div class="template-option" data-image="flyer6.jpg">
-                        <img src="flyer6.jpg" alt="New Logo Template 3">
-                    </div>
-                    <div class="template-header">Old Logo Templates</div>
-                    <div class="template-option" data-image="flyer1.jpg">
-                        <img src="flyer1.jpg" alt="Old Logo Template 1">
-                    </div>
-                    <div class="template-option" data-image="flyer2.jpg">
-                        <img src="flyer2.jpg" alt="Old Logo Template 2">
-                    </div>
-                    <div class="template-option" data-image="flyer3.jpg">
-                        <img src="flyer3.jpg" alt="Old Logo Template 3">
-                    </div>
-                </div>
-            </div>
-
-            <canvas id="displayCanvas"></canvas>
-
-            <div class="input-group">
-                <label>Font Weight</label>
-                <div class="font-weight-selector">
-                    <div class="font-weight-option active" data-weight="700">Bold</div>
-                    <div class="font-weight-option" data-weight="400">Normal</div>
-                    <div class="font-weight-option" data-weight="300">Light</div>
-                </div>
-            </div>
-
-            <div class="input-group">
-                <label for="textSize">Text Size: <span id="textSizeValue">24</span>px</label>
-                <input type="range" id="textSize" min="10" max="35" value="24" oninput="updateTextSize(this.value)">
-            </div>
-
-            <div class="input-group">
-                <label for="userText">Your Message</label>
-                <textarea id="userText" placeholder="Type your inspiring message here... Press Enter for new lines"></textarea>
-            </div>
-
-            <div class="input-group">
-                <label for="userName">Your Name</label>
-                <input type="text" id="userName" placeholder="Enter your name">
-            </div>
-
-            <div class="button-group">
-                <button class="btn-primary" onclick="downloadImage()">
-                    <i class="fas fa-download"></i> Download Image
-                </button>
-                <button class="btn-secondary" onclick="shareToX()">
-                    <i class="fab fa-twitter"></i> Share to X
-                </button>
-            </div>
+    <div id="tweet" class="tab-content container">
+        <div class="header">
+            <h1 class="app-title">Symbiotic Flyer Maker - Tweet</h1>
         </div>
-        <div class="coming-soon-overlay">
-            <h2>Coming Soon</h2>
+        
+        <canvas id="displayCanvas" width="500" height="500"></canvas>
+
+        <div class="template-selector">
+            <label>Select Background Template</label>
+            <div class="template-scroll" id="tweetTemplates">
+                </div>
+        </div>
+
+        <div class="input-group">
+            <label for="tweetBody">Tweet Text</label>
+            <textarea id="tweetBody" oninput="drawCanvas()"></textarea>
+        </div>
+
+        <div class="input-group">
+            <label for="tweetFontSize">Font Size: <span id="fontSizeValue">24</span>px</label>
+            <input type="range" id="tweetFontSize" min="16" max="60" value="24" oninput="document.getElementById('fontSizeValue').textContent = this.value; drawCanvas()">
+        </div>
+
+        <label>Text Weight</label>
+        <div class="font-weight-selector" id="tweetWeightSelector">
+            <span class="font-weight-option active" data-weight="300">Light</span>
+            <span class="font-weight-option" data-weight="400">Regular</span>
+            <span class="font-weight-option" data-weight="700">Bold</span>
+        </div>
+
+        <div class="button-group">
+            <button class="btn-primary" onclick="downloadImage('displayCanvas', 'symbiotic_tweet')"><i class="fas fa-download"></i> Download Image</button>
+            <button class="btn-secondary" onclick="shareToX('displayCanvas', 'Tweet')"><i class="fab fa-twitter"></i> Share to X</button>
         </div>
     </div>
 
-    <div id="thread-tab" class="tab-content coming-soon-tab">
-        <div class="container">
-            <div class="header">
-                <h1 class="app-title">Symbiotic Flyer Maker - Thread</h1>
-            </div>
-
-            <div class="template-selector">
-                <div class="template-scroll">
-                    <div class="template-header">New Logo Templates</div>
-                    <div class="template-option active" data-image="flyer4.jpg">
-                        <img src="flyer4.jpg" alt="New Logo Template 1">
-                    </div>
-                    <div class="template-option" data-image="flyer5.jpg">
-                        <img src="flyer5.jpg" alt="New Logo Template 2">
-                    </div>
-                    <div class="template-option" data-image="flyer6.jpg">
-                        <img src="flyer6.jpg" alt="New Logo Template 3">
-                    </div>
-                    <div class="template-header">Old Logo Templates</div>
-                    <div class="template-option" data-image="flyer1.jpg">
-                        <img src="flyer1.jpg" alt="Old Logo Template 1">
-                    </div>
-                    <div class="template-option" data-image="flyer2.jpg">
-                        <img src="flyer2.jpg" alt="Old Logo Template 2">
-                    </div>
-                    <div class="template-option" data-image="flyer3.jpg">
-                        <img src="flyer3.jpg" alt="Old Logo Template 3">
-                    </div>
-                </div>
-            </div>
-
-            <div class="input-group">
-                <label for="numPosts">Number of Posts in Thread (min 2):</label>
-                <input type="number" id="numPosts" min="2" value="3">
-                <button class="btn-primary" onclick="generateThread()" style="margin-top: 10px; flex: none; width: auto;">Generate Thread</button>
-            </div>
-
-            <div id="thread-flyers"></div>
-
-            <div class="input-group">
-                <label>Font Weight (applies to all)</label>
-                <div class="font-weight-selector">
-                    <div class="font-weight-option active" data-weight="700">Bold</div>
-                    <div class="font-weight-option" data-weight="400">Normal</div>
-                    <div class="font-weight-option" data-weight="300">Light</div>
-                </div>
-            </div>
-
-            <div class="input-group">
-                <label for="threadTextSize">Text Size: <span id="threadTextSizeValue">24</span>px</label>
-                <input type="range" id="threadTextSize" min="10" max="35" value="24" oninput="updateThreadTextSize(this.value)">
-            </div>
-
-            <div class="input-group">
-                <label for="threadUserName">Your Name (applies to all)</label>
-                <input type="text" id="threadUserName" placeholder="Enter your name">
-            </div>
-
-            <div class="button-group">
-                <button class="btn-primary" onclick="downloadThread()">
-                    <i class="fas fa-download"></i> Download All Images
-                </button>
-                <button class="btn-secondary" onclick="shareThreadToX()">
-                    <i class="fab fa-twitter"></i> Share Thread to X
-                </button>
-            </div>
+    <div id="thread" class="tab-content container">
+        <div class="header">
+            <h1 class="app-title">Symbiotic Flyer Maker - Thread</h1>
         </div>
-        <div class="coming-soon-overlay">
-            <h2>Coming Soon</h2>
+
+        <div id="thread-canvases">
+            </div>
+
+        <div class="template-selector">
+            <label>Select Background Template</label>
+            <div class="template-scroll" id="threadTemplates">
+                </div>
+        </div>
+        
+        <div class="input-group">
+            <label for="threadText">Thread Text (New line for new image)</label>
+            <textarea id="threadText" oninput="drawThread()"></textarea>
+        </div>
+        
+        <div class="input-group">
+            <label for="threadFontSize">Font Size: <span id="threadFontSizeValue">24</span>px</label>
+            <input type="range" id="threadFontSize" min="16" max="60" value="24" oninput="document.getElementById('threadFontSizeValue').textContent = this.value; drawThread()">
+        </div>
+        
+        <label>Text Weight</label>
+        <div class="font-weight-selector" id="threadWeightSelector">
+            <span class="font-weight-option active" data-weight="300">Light</span>
+            <span class="font-weight-option" data-weight="400">Regular</span>
+            <span class="font-weight-option" data-weight="700">Bold</span>
+        </div>
+
+        <div class="button-group">
+            <button class="btn-primary" onclick="downloadThreadImages()"><i class="fas fa-download"></i> Download All Images</button>
+            <button class="btn-secondary" onclick="alert('This feature will download all images. You will have to manually upload and post them as a thread on X.')"><i class="fab fa-twitter"></i> Share to X</button>
         </div>
     </div>
-
-    <canvas id="hiddenCanvas"></canvas>
 
     <script>
-        let currentTab = 'id';
-        let bgImage = new Image();
-        bgImage.crossOrigin = "anonymous";
-        bgImage.src = "flyer4.jpg";
+        const TWEET_TEMPLATES = [
+            'flyer1.jpg', 'flyer2.jpg', 'flyer3.jpg', 
+            'flyer4.jpg', 'flyer5.jpg', 'flyer6.jpg'
+        ];
+        let activeTemplate = TWEET_TEMPLATES[0];
+        let tweetFontWeight = '300';
+        let threadFontWeight = '300';
 
-        let idBgImage = new Image();
-        idBgImage.crossOrigin = "anonymous";
-        idBgImage.src = "id.jpg";
+        // --- Utility Functions ---
 
-        idBgImage.onerror = function () {
-            console.warn("ID background image failed to load. Using fallback image.");
-            idBgImage.src = "https://via.placeholder.com/800x600.png?text=Your+Image";
-        };
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            document.getElementById(tabId).classList.add('active');
 
-        bgImage.onerror = function () {
-            console.warn("Background image failed to load. Using fallback image.");
-            bgImage.src = "https://via.placeholder.com/800x600.png?text=Your+Image";
-        };
+            document.querySelectorAll('.tab-button').forEach(button => {
+                button.classList.remove('active');
+            });
+            document.querySelector(`.tab-button[data-tab="${tabId}"]`).classList.add('active');
 
-        const displayCanvas = document.getElementById('displayCanvas');
-        const ctxDisplay = displayCanvas.getContext('2d');
-        const idCanvas = document.getElementById('idCanvas');
-        const ctxId = idCanvas.getContext('2d');
-        const hiddenCanvas = document.getElementById('hiddenCanvas');
-        const ctxHidden = hiddenCanvas.getContext('2d');
-        let threadCanvases = [];
-        let threadCtxs = [];
-        let numThreadPosts = 0;
-        let profileImage = new Image();
-        profileImage.crossOrigin = "anonymous";
-        // Removed the default quote content
-        const DEFAULT_QUOTE = ""; 
-        // Changed link for Symbiotic
-        const SYMBIOTIC_LINK = "https://symbioticflyermaker.com"; // Replace with actual Symbiotic link
+            // Redraw content when switching tabs
+            if (tabId === 'id') {
+                drawIDCard();
+            } else if (tabId === 'tweet') {
+                drawCanvas();
+            } else if (tabId === 'thread') {
+                drawThread();
+            }
+        }
 
-        function switchTab(tab) {
-            document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
-            document.querySelectorAll('nav button').forEach(btn => btn.classList.remove('active'));
-            document.querySelector(`#${tab}-tab`).classList.add('active');
-            const buttons = document.querySelectorAll('nav button');
-            buttons.forEach((btn, index) => {
-                if (tab === 'id' && index === 0 ||
-                    tab === 'tweet' && index === 1 ||
-                    tab === 'thread' && index === 2) {
-                    btn.classList.add('active');
+        function downloadImage(canvasId, filename) {
+            const canvas = document.getElementById(canvasId);
+            const link = document.createElement('a');
+            link.download = filename + '.png';
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+        }
+
+        function shareToX(canvasId, type) {
+            const canvas = document.getElementById(canvasId);
+            const imageData = canvas.toDataURL('image/png').split(',')[1];
+            const text = `Check out my new Symbiotic ${type} Flyer!\n\n#Symbiotic #FlyerMaker`;
+            
+            // Note: Sharing images directly via X/Twitter Web Intent is not possible without an API key/server.
+            // This button is kept for UI consistency but provides an alert for manual sharing.
+            alert(`Ready to share! Download the image and manually upload it to X/Twitter with this text:\n\n${text}`);
+        }
+        
+        // --- Template Setup ---
+        
+        function setupTemplates() {
+            const tweetContainer = document.getElementById('tweetTemplates');
+            const threadContainer = document.getElementById('threadTemplates');
+
+            TWEET_TEMPLATES.forEach((template, index) => {
+                const isIdTemplate = template.startsWith('id'); // ID logic removed, but keeping a check for safety
+                
+                // Create for Tweet Tab
+                const tweetOption = document.createElement('div');
+                tweetOption.className = `template-option ${index === 0 ? 'active-template' : ''}`;
+                tweetOption.setAttribute('data-template', template);
+                tweetOption.innerHTML = `<img src="${template}" alt="Flyer Template ${index + 1}">`;
+                tweetOption.onclick = () => {
+                    setActiveTemplate(template, 'tweet');
+                };
+                tweetContainer.appendChild(tweetOption);
+                
+                // Create for Thread Tab
+                const threadOption = document.createElement('div');
+                threadOption.className = `template-option ${index === 0 ? 'active-template' : ''}`;
+                threadOption.setAttribute('data-template', template);
+                threadOption.innerHTML = `<img src="${template}" alt="Flyer Template ${index + 1}">`;
+                threadOption.onclick = () => {
+                    setActiveTemplate(template, 'thread');
+                };
+                threadContainer.appendChild(threadOption);
+            });
+        }
+
+        function setActiveTemplate(template, tabType) {
+            activeTemplate = template;
+            document.querySelectorAll(`#${tabType} .template-option`).forEach(option => {
+                option.classList.remove('active-template');
+                if (option.getAttribute('data-template') === template) {
+                    option.classList.add('active-template');
                 }
             });
-            currentTab = tab;
-            if (tab === 'tweet') {
-                initializeTweet();
-            } else if (tab === 'thread') {
-                initializeThread();
-            } else if (tab === 'id') {
-                initializeId();
+            if (tabType === 'tweet') {
+                drawCanvas();
+            } else if (tabType === 'thread') {
+                drawThread();
             }
         }
-
-        function initializeTweet() {
-            if (bgImage.complete) {
-                initTweetCanvas();
-                updateTweetDisplay();
-            } else {
-                bgImage.onload = function () {
-                    initTweetCanvas();
-                    updateTweetDisplay();
-                };
-            }
-        }
-
-        function initializeThread() {
-            // No-op: event listeners moved to global scope
-        }
-
-        function initializeId() {
-            if (idBgImage.complete) {
-                initIdCanvas();
-                updateIdDisplay();
-            } else {
-                idBgImage.onload = function () {
-                    initIdCanvas();
-                    updateIdDisplay();
-                };
-            }
-        }
-
-        function generateThread() {
-            const num = parseInt(document.getElementById('numPosts').value);
-            if (num < 2) {
-                alert('Number of posts must be at least 2.');
-                return;
-            }
-            numThreadPosts = num;
-            const threadFlyersDiv = document.getElementById('thread-flyers');
-            threadFlyersDiv.innerHTML = '';
-            threadCanvases = [];
-            threadCtxs = [];
-
-            for (let i = 1; i <= num; i++) {
-                const flyerDiv = document.createElement('div');
-                flyerDiv.className = 'thread-flyer';
-                flyerDiv.innerHTML = `
-                    <div class="thread-number">Post ${i}/${num}</div>
-                    <canvas class="thread-canvas" id="threadCanvas${i}"></canvas>
-                    <div class="input-group">
-                        <label for="threadText${i}">Message for Post ${i}</label>
-                        <textarea id="threadText${i}" placeholder="Type message for post ${i}... Press Enter for new lines"></textarea>
-                    </div>
-                `;
-                threadFlyersDiv.appendChild(flyerDiv);
-
-                const canvas = document.getElementById(`threadCanvas${i}`);
-                const ctx = canvas.getContext('2d');
-                threadCanvases.push(canvas);
-                threadCtxs.push(ctx);
-
-                const textarea = document.getElementById(`threadText${i}`);
-                textarea.addEventListener('input', () => updateThreadDisplay(i));
-
-                if (i === 1) {
-                    textarea.value = `1/${num}`;
-                }
-
-                initThreadCanvas(canvas);
-                updateThreadDisplay(i);
-            }
-
-            window.addEventListener('resize', updateAllThreadDisplays);
-        }
-
-        function initTweetCanvas() {
-            const containerWidth = document.querySelector('#tweet-tab .container').offsetWidth;
-            const aspectRatio = bgImage.height / bgImage.width;
-            displayCanvas.width = containerWidth;
-            displayCanvas.height = containerWidth * aspectRatio;
-            hiddenCanvas.width = bgImage.width;
-            hiddenCanvas.height = bgImage.height;
-        }
-
-        function initIdCanvas() {
-            const containerWidth = document.querySelector('#id-tab .container').offsetWidth;
-            const aspectRatio = idBgImage.height / idBgImage.width;
-            idCanvas.width = containerWidth;
-            idCanvas.height = containerWidth * aspectRatio;
-            hiddenCanvas.width = idBgImage.width;
-            hiddenCanvas.height = idBgImage.height;
-        }
-
-        function initThreadCanvas(canvas) {
-            const containerWidth = document.querySelector('#thread-tab .container').offsetWidth;
-            const aspectRatio = bgImage.height / bgImage.width;
-            canvas.width = containerWidth;
-            canvas.height = containerWidth * aspectRatio;
-        }
-
+        
         // --- ID Card Drawing Logic ---
 
-        function drawIdCard(canvas, ctx, final = false) {
-            const w = final ? idBgImage.width : canvas.width;
-            const h = final ? idBgImage.height : canvas.height;
-            const scale = w / idBgImage.width;
-            const name = document.getElementById('idUserName').value || "Enter your name";
-            const profileImg = final ? profileImage : null;
+        function drawIDCard() {
+            const canvas = document.getElementById('idCanvas');
+            const ctx = canvas.getContext('2d');
+            const nameText = document.getElementById('idName').value.toUpperCase() || 'YOUR NAME';
+            const profilePictureInput = document.getElementById('profilePicture');
+            const profilePictureFile = profilePictureInput.files[0];
+
+            // Set a high resolution for a clear image (e.g., 1080x1080)
+            canvas.width = 1080;
+            canvas.height = 1080;
+
+            // --- 1. Load Background Image (Crucial Step) ---
+            const bgImg = new Image();
+            // Assumes the ID background is named 'id.jpg'
+            bgImg.src = 'id.jpg'; 
             
-            // Text to display on the card - Symbiotic for community
-            const cardText = "Symbiotic for community";
-
-            ctx.clearRect(0, 0, w, h);
-            ctx.drawImage(idBgImage, 0, 0, w, h);
-
-            // Co-ordinates for text and image based on the original image ratio
-            const textX = 400 * scale; // Center for the text
-            const textY = 320 * scale;
-            const cardTextY = 390 * scale;
-            const nameX = 400 * scale;
-            const nameY = 560 * scale;
-
-            // --- Profile Picture (Placeholder or Uploaded) ---
-            const profileSize = 120 * scale;
-            const profileX = 400 * scale;
-            const profileY = 220 * scale; 
-            const logoSize = 60 * scale;
-            const logoX = 400 * scale;
-            const logoY = 100 * scale;
-            
-            // Draw profile circle clipping
-            ctx.save();
-            ctx.beginPath();
-            ctx.arc(profileX, profileY, profileSize / 2, 0, Math.PI * 2);
-            ctx.clip();
-            
-            // Profile image logic
-            if (profileImg && profileImg.complete && profileImg.naturalWidth > 0) {
-                // Calculate position to center and cover the circle
-                const imgRatio = profileImg.naturalWidth / profileImg.naturalHeight;
-                let drawW, drawH, drawX, drawY;
-                
-                if (imgRatio > 1) { // Wider than tall
-                    drawH = profileSize;
-                    drawW = profileSize * imgRatio;
-                    drawX = profileX - drawW / 2;
-                    drawY = profileY - profileSize / 2;
-                } else { // Taller or square
-                    drawW = profileSize;
-                    drawH = profileSize / imgRatio;
-                    drawX = profileX - profileSize / 2;
-                    drawY = profileY - drawH / 2;
-                }
-                
-                ctx.drawImage(profileImg, drawX, drawY, drawW, drawH);
-            } else {
-                 // Fallback placeholder
-                ctx.fillStyle = '#CDB296';
-                ctx.fill();
-                ctx.fillStyle = 'rgba(42, 42, 42, 0.7)';
-                ctx.textAlign = 'center';
-                ctx.font = `${14 * scale}px ${getComputedStyle(document.body).getPropertyValue('--text-font').replace(/['"]/g, '').split(',')[0]}`;
-                ctx.fillText('Upload PFP', profileX, profileY + 5 * scale);
-            }
-            ctx.restore();
-
-            // --- Card Text (Symbiotic for community) ---
-            ctx.fillStyle = '#3C2F20';
-            ctx.textAlign = 'center';
-            ctx.textBaseline = 'middle';
-            ctx.font = `700 ${22 * scale}px 'Space Grotesk'`;
-            ctx.fillText(cardText, textX, cardTextY);
-
-            // --- Name Text ---
-            ctx.fillStyle = '#3C2F20';
-            ctx.textAlign = 'center';
-            ctx.textBaseline = 'middle';
-            ctx.font = `300 ${24 * scale}px 'Space Grotesk'`;
-            ctx.fillText(name, nameX, nameY);
-        }
-
-        function updateIdDisplay() {
-            drawIdCard(idCanvas, ctxId);
-        }
-
-        // ID specific event listeners
-        document.getElementById('idUserName').addEventListener('input', updateIdDisplay);
-        document.getElementById('profileImage').addEventListener('change', function (e) {
-            const file = e.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function (event) {
-                    profileImage.onload = updateIdDisplay;
-                    profileImage.src = event.target.result;
+            // Use a promise to wait for the image to load
+            new Promise((resolve) => {
+                bgImg.onload = () => resolve();
+                bgImg.onerror = () => {
+                    console.error("ID background image (id.jpg) failed to load. Drawing only text.");
+                    resolve(); 
                 };
-                reader.readAsDataURL(file);
-            }
-        });
-
-        // The rest of the tweet and thread drawing functions follow here, 
-        // with 'Seismic' replaced with 'Symbiotic' in the default share messages.
-        // ... (remaining JavaScript code with necessary updates)
-
-        // Tweet specific event listeners (added once on load)
-        const tweetTemplateOptions = document.querySelectorAll('#tweet-tab .template-option');
-        tweetTemplateOptions.forEach(option => {
-            option.addEventListener('click', function () {
-                tweetTemplateOptions.forEach(opt => opt.classList.remove('active'));
-                this.classList.add('active');
-                bgImage.src = this.getAttribute('data-image');
-                bgImage.onload = () => {
-                    initTweetCanvas();
-                    updateTweetDisplay();
-                };
-            });
-        });
-
-        document.getElementById('textSize').addEventListener('input', updateTweetDisplay);
-        document.getElementById('userText').addEventListener('input', updateTweetDisplay);
-        document.getElementById('userName').addEventListener('input', updateTweetDisplay);
-        document.querySelectorAll('#tweet-tab .font-weight-option').forEach(option => {
-            option.addEventListener('click', function () {
-                document.querySelectorAll('#tweet-tab .font-weight-option').forEach(opt => opt.classList.remove('active'));
-                this.classList.add('active');
-                updateTweetDisplay();
-            });
-        });
-
-        // Thread specific event listeners (added once on load)
-        const threadTemplateOptions = document.querySelectorAll('#thread-tab .template-option');
-        threadTemplateOptions.forEach(option => {
-            option.addEventListener('click', function () {
-                threadTemplateOptions.forEach(opt => opt.classList.remove('active'));
-                this.classList.add('active');
-                bgImage.src = this.getAttribute('data-image');
-                bgImage.onload = updateAllThreadDisplays;
-            });
-        });
-        document.getElementById('threadTextSize').addEventListener('input', updateAllThreadDisplays);
-        document.getElementById('threadUserName').addEventListener('input', updateAllThreadDisplays);
-        document.querySelectorAll('#thread-tab .font-weight-option').forEach(option => {
-            option.addEventListener('click', function () {
-                document.querySelectorAll('#thread-tab .font-weight-option').forEach(opt => opt.classList.remove('active'));
-                this.classList.add('active');
-                updateAllThreadDisplays();
-            });
-        });
-
-
-        // Canvas drawing functions for Tweet and Thread (place these here or in a separate script file)
-        
-        function drawFlyer(canvas, ctx, text, name, fontWeight, final = false) {
-            const w = final ? bgImage.width : canvas.width;
-            const h = final ? bgImage.height : canvas.height;
-            const scale = w / bgImage.width;
-            const fontSize = parseFloat(document.getElementById(currentTab === 'thread' ? 'threadTextSize' : 'textSize').value || 24) * scale;
-            const nameSize = 16 * scale;
-            const nameBottomMargin = 25 * scale;
-            const textColor = getComputedStyle(document.body).getPropertyValue('--text-color');
-            const fontName = getComputedStyle(document.body).getPropertyValue('--text-font').replace(/['"]/g, '').split(',')[0];
-
-            ctx.clearRect(0, 0, w, h);
-            ctx.drawImage(bgImage, 0, 0, w, h);
-
-            // Text
-            ctx.fillStyle = textColor;
-            ctx.textAlign = 'center';
-            ctx.textBaseline = 'top';
-            ctx.font = `${fontWeight} ${fontSize}px ${fontName}`;
-            
-            const maxTextWidth = w * 0.7; // 70% of canvas width
-            const lines = getLines(ctx, text, maxTextWidth);
-            
-            let textHeight = lines.length * fontSize * 1.3; // Approx line height
-            let startY = (h - textHeight) / 2 - nameBottomMargin;
-            
-            for (let i = 0; i < lines.length; i++) {
-                ctx.fillText(lines[i], w / 2, startY + i * fontSize * 1.3);
-            }
-
-            // Name
-            ctx.textBaseline = 'bottom';
-            ctx.font = `300 ${nameSize}px ${fontName}`;
-            ctx.fillText(name, w / 2, h - nameBottomMargin);
-        }
-
-        function getLines(ctx, text, maxWidth) {
-            if (!text) return [];
-            const words = text.split(' ');
-            const lines = [];
-            let currentLine = words[0] || '';
-
-            for (let i = 1; i < words.length; i++) {
-                const word = words[i];
-                const lineTest = currentLine + " " + word;
-                if (ctx.measureText(lineTest).width < maxWidth) {
-                    currentLine = lineTest;
+                if (bgImg.complete) resolve();
+            }).then(() => {
+                
+                // Clear canvas and draw background
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                if (bgImg.complete && bgImg.width > 0) {
+                    ctx.drawImage(bgImg, 0, 0, canvas.width, canvas.height);
                 } else {
-                    lines.push(currentLine);
-                    currentLine = word;
+                     // Fallback to a solid color if image fails
+                    ctx.fillStyle = 'rgba(205, 178, 150, 0.9)'; 
+                    ctx.fillRect(0, 0, canvas.width, canvas.height);
+                }
+
+                // --- 2. Draw Symbiotic Logo (Your Request) ---
+                const logo = new Image();
+                logo.src = 'logo.png'; 
+                
+                logo.onload = function() {
+                    const logoSize = 150; 
+                    const logoX = 150;    
+                    const logoY = 150;    
+
+                    ctx.drawImage(logo, logoX, logoY, logoSize, logoSize);
+                    drawCardText(); 
+                };
+
+                logo.onerror = function() {
+                    console.error("Logo image (logo.png) failed to load.");
+                    drawCardText();
+                };
+                
+                // If logo is already cached, draw immediately
+                if (logo.complete) {
+                    const logoSize = 150;
+                    const logoX = 150;
+                    const logoY = 150;
+                    ctx.drawImage(logo, logoX, logoY, logoSize, logoSize);
+                    drawCardText();
+                } else {
+                    drawCardText(); 
+                }
+                
+            });
+
+            // Helper function to draw all the text elements
+            function drawCardText() {
+                ctx.textAlign = 'center';
+                ctx.fillStyle = 'black'; 
+
+                // 1. Draw "Symbiotic for community" (Your Request)
+                ctx.font = '500 50px "Space Grotesk"';
+                ctx.fillText("Symbiotic for community", canvas.width / 2, 850); 
+
+                // 2. Draw the User's Name
+                ctx.font = '700 80px "Space Grotesk"';
+                ctx.fillText(nameText, canvas.width / 2, 950); 
+                
+                // 3. Draw the profile picture (if uploaded)
+                if (profilePictureFile) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        const img = new Image();
+                        img.onload = function() {
+                            const picSize = 400;
+                            const picX = canvas.width / 2 - picSize / 2;
+                            const picY = 300;
+                            
+                            // Clip the profile picture to a circle
+                            ctx.save();
+                            ctx.beginPath();
+                            ctx.arc(canvas.width / 2, picY + picSize / 2, picSize / 2, 0, Math.PI * 2, true);
+                            ctx.closePath();
+                            ctx.clip();
+                            
+                            ctx.drawImage(img, picX, picY, picSize, picSize);
+                            ctx.restore();
+                        };
+                        img.src = e.target.result;
+                    };
+                    reader.readAsDataURL(profilePictureFile);
                 }
             }
-            lines.push(currentLine);
-            return lines.flatMap(line => line.split('\n')); // Handle newlines
-        }
-
-        function updateTweetDisplay() {
-            const text = document.getElementById('userText').value || "Type your inspiring message here...";
-            const name = document.getElementById('userName').value || "Your Name";
-            const fontWeight = document.querySelector('#tweet-tab .font-weight-option.active').getAttribute('data-weight');
-            drawFlyer(displayCanvas, ctxDisplay, text, name, fontWeight);
-            document.getElementById('textSizeValue').textContent = document.getElementById('textSize').value;
-        }
-
-        function updateThreadDisplay(index) {
-            if (index < 1 || index > numThreadPosts) return;
-            const text = document.getElementById(`threadText${index}`).value;
-            const name = document.getElementById('threadUserName').value || "Your Name";
-            const fontWeight = document.querySelector('#thread-tab .font-weight-option.active').getAttribute('data-weight');
-            drawFlyer(threadCanvases[index - 1], threadCtxs[index - 1], text, name, fontWeight);
-        }
-
-        function updateAllThreadDisplays() {
-            for (let i = 1; i <= numThreadPosts; i++) {
-                initThreadCanvas(threadCanvases[i - 1]); // Recalculate size on resize
-                updateThreadDisplay(i);
-            }
-            document.getElementById('threadTextSizeValue').textContent = document.getElementById('threadTextSize').value;
-        }
-
-        // --- Download and Share Functions ---
-
-        function downloadImage() {
-            const text = document.getElementById('userText').value || "Type your inspiring message here...";
-            const name = document.getElementById('userName').value || "Your Name";
-            const fontWeight = document.querySelector('#tweet-tab .font-weight-option.active').getAttribute('data-weight');
-
-            drawFlyer(hiddenCanvas, ctxHidden, text, name, fontWeight, true);
-
-            const dataURL = hiddenCanvas.toDataURL('image/png');
-            const a = document.createElement('a');
-            a.href = dataURL;
-            // Changed filename prefix to Symbiotic
-            a.download = 'symbiotic_flyer.png'; 
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-
-            // Re-draw display canvas (optional, but good practice)
-            initTweetCanvas();
-            updateTweetDisplay();
-        }
-
-        function downloadIdImage() {
-            // Draw on hidden canvas at full resolution
-            drawIdCard(hiddenCanvas, ctxHidden, true); 
-
-            const dataURL = hiddenCanvas.toDataURL('image/png');
-            const a = document.createElement('a');
-            a.href = dataURL;
-            // Changed filename prefix to Symbiotic
-            a.download = 'symbiotic_id_card.png';
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-            
-            // Re-draw display canvas
-            initIdCanvas();
-            updateIdDisplay();
         }
         
-        function downloadThread() {
-            for (let i = 1; i <= numThreadPosts; i++) {
-                const text = document.getElementById(`threadText${i}`).value;
-                const name = document.getElementById('threadUserName').value || "Your Name";
-                const fontWeight = document.querySelector('#thread-tab .font-weight-option.active').getAttribute('data-weight');
-                
-                // Draw on hidden canvas at full resolution
-                drawFlyer(hiddenCanvas, ctxHidden, text, name, fontWeight, true);
-                
-                const dataURL = hiddenCanvas.toDataURL('image/png');
-                const a = document.createElement('a');
-                a.href = dataURL;
-                // Changed filename prefix to Symbiotic
-                a.download = `symbiotic_thread_post_${i}.png`; 
-                document.body.appendChild(a);
-                a.click();
-                document.body.removeChild(a);
+        // --- Tweet Canvas Drawing Logic ---
+
+        function drawCanvas() {
+            const canvas = document.getElementById('displayCanvas');
+            const ctx = canvas.getContext('2d');
+            const text = document.getElementById('tweetBody').value || 'Enter your tweet text here...';
+            const fontSize = document.getElementById('tweetFontSize').value;
+            const fontWeight = tweetFontWeight;
+
+            canvas.width = 1080;
+            canvas.height = 1080;
+
+            const bgImg = new Image();
+            bgImg.src = activeTemplate;
+
+            bgImg.onload = function() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                ctx.drawImage(bgImg, 0, 0, canvas.width, canvas.height);
+
+                ctx.fillStyle = 'white'; 
+                ctx.font = `${fontWeight} ${fontSize}px "Space Grotesk"`;
+                ctx.textAlign = 'center';
+
+                wrapText(ctx, text, canvas.width / 2, canvas.height / 2, canvas.width * 0.8, fontSize * 1.2);
+            };
+            bgImg.onerror = function() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                ctx.fillStyle = 'gray';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                ctx.fillStyle = 'white';
+                ctx.font = '300 40px "Space Grotesk"';
+                ctx.textAlign = 'center';
+                ctx.fillText('Error: Background image failed to load.', canvas.width / 2, canvas.height / 2);
+            };
+
+            // If the image is already loaded (cached), draw immediately
+            if (bgImg.complete) {
+                bgImg.onload(); 
             }
-            // Re-draw all thread canvases (optional)
-            updateAllThreadDisplays();
         }
 
-        function shareToX() {
-            const text = document.getElementById('userText').value;
-            // Changed share text to Symbiotic
-            const shareText = `Check out this flyer I made with the Symbiotic Flyer Maker! ${text || ''}\n#Symbiotic #Web3`; 
-            const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}`;
-            window.open(url, '_blank');
+        // Helper function for wrapping text
+        function wrapText(ctx, text, x, y, maxWidth, lineHeight) {
+            const words = text.split(' ');
+            let line = '';
+            let lines = [];
+
+            for (let n = 0; n < words.length; n++) {
+                const testLine = line + words[n] + ' ';
+                const metrics = ctx.measureText(testLine);
+                const testWidth = metrics.width;
+
+                if (testWidth > maxWidth && n > 0) {
+                    lines.push(line);
+                    line = words[n] + ' ';
+                } else {
+                    line = testLine;
+                }
+            }
+            lines.push(line);
+
+            // Center the block of text vertically
+            const totalTextHeight = lines.length * lineHeight;
+            let currentY = y - totalTextHeight / 2 + lineHeight / 2;
+
+            for (let i = 0; i < lines.length; i++) {
+                ctx.fillText(lines[i].trim(), x, currentY);
+                currentY += lineHeight;
+            }
+        }
+        
+        // --- Thread Drawing Logic ---
+
+        function drawThread() {
+            const container = document.getElementById('thread-canvases');
+            const text = document.getElementById('threadText').value.trim();
+            const fontSize = document.getElementById('threadFontSize').value;
+            const fontWeight = threadFontWeight;
+            const lines = text.split('\n').filter(line => line.trim() !== '');
+
+            container.innerHTML = ''; // Clear previous canvases
+
+            if (lines.length === 0) {
+                // Draw a blank placeholder if no text is present
+                const placeholderCanvas = document.createElement('canvas');
+                placeholderCanvas.className = 'thread-canvas';
+                placeholderCanvas.width = 500;
+                placeholderCanvas.height = 500;
+                container.appendChild(placeholderCanvas);
+
+                const ctx = placeholderCanvas.getContext('2d');
+                ctx.fillStyle = 'lightgray';
+                ctx.fillRect(0, 0, 500, 500);
+                ctx.fillStyle = 'darkgray';
+                ctx.font = '300 20px "Space Grotesk"';
+                ctx.textAlign = 'center';
+                ctx.fillText('Enter text above to generate thread images.', 250, 250);
+                return;
+            }
+
+            lines.forEach((lineText, index) => {
+                const canvas = document.createElement('canvas');
+                canvas.className = 'thread-canvas';
+                // Use a standard large size for better quality
+                canvas.width = 1080;
+                canvas.height = 1080; 
+                container.appendChild(canvas);
+
+                const ctx = canvas.getContext('2d');
+                const bgImg = new Image();
+                bgImg.src = activeTemplate; 
+
+                bgImg.onload = function() {
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                    ctx.drawImage(bgImg, 0, 0, canvas.width, canvas.height);
+
+                    ctx.fillStyle = 'white'; 
+                    ctx.font = `${fontWeight} ${fontSize}px "Space Grotesk"`;
+                    ctx.textAlign = 'center';
+
+                    // Use the same wrapping logic as the tweet
+                    wrapText(ctx, lineText.trim(), canvas.width / 2, canvas.height / 2, canvas.width * 0.8, fontSize * 1.2);
+                };
+                
+                if (bgImg.complete) {
+                    bgImg.onload(); 
+                }
+            });
+        }
+        
+        // Function to download all thread images as a ZIP (requires an external library or server-side code normally)
+        function downloadThreadImages() {
+            const canvases = document.querySelectorAll('#thread-canvases .thread-canvas');
+            if (canvases.length === 0) {
+                alert('No thread images to download. Please enter text in the thread box.');
+                return;
+            }
+
+            // Simple download loop (no ZIP, just downloads files individually)
+            canvases.forEach((canvas, index) => {
+                const link = document.createElement('a');
+                link.download = `symbiotic_thread_part_${index + 1}.png`;
+                link.href = canvas.toDataURL('image/png');
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            });
+            alert(`Downloaded ${canvases.length} thread images.`);
         }
 
-        function shareIdToX() {
-            const userName = document.getElementById('idUserName').value;
-            // Changed share text to Symbiotic
-            const shareText = `I just got my Symbiotic ID card! I'm here for community! \n@${userName || 'SymbioticUser'} #Symbiotic`;
-            const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}`;
-            window.open(url, '_blank');
-        }
+        // --- Event Listeners and Initial Setup ---
 
-        function shareThreadToX() {
-            const shareText = `I just made a thread using the Symbiotic Flyer Maker! Check it out! \n#Symbiotic #Web3`;
-            const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}`;
-            window.open(url, '_blank');
-        }
+        document.addEventListener('DOMContentLoaded', () => {
+            // Setup Tab Switching
+            document.querySelectorAll('.tab-button').forEach(button => {
+                button.addEventListener('click', () => {
+                    switchTab(button.getAttribute('data-tab'));
+                });
+            });
 
-        // Initialize on load
-        window.onload = function () {
-            // Check if profileImage should load from a default source (if necessary)
-            // For now, we rely on user upload.
+            // Setup Tweet Font Weight
+            document.getElementById('tweetWeightSelector').querySelectorAll('.font-weight-option').forEach(option => {
+                option.addEventListener('click', () => {
+                    document.getElementById('tweetWeightSelector').querySelectorAll('.font-weight-option').forEach(o => o.classList.remove('active'));
+                    option.classList.add('active');
+                    tweetFontWeight = option.getAttribute('data-weight');
+                    drawCanvas();
+                });
+            });
 
-            // Initialize the default tab
-            initializeId();
-            window.addEventListener('resize', updateIdDisplay);
-            window.addEventListener('resize', initTweetCanvas);
-        };
+            // Setup Thread Font Weight
+            document.getElementById('threadWeightSelector').querySelectorAll('.font-weight-option').forEach(option => {
+                option.addEventListener('click', () => {
+                    document.getElementById('threadWeightSelector').querySelectorAll('.font-weight-option').forEach(o => o.classList.remove('active'));
+                    option.classList.add('active');
+                    threadFontWeight = option.getAttribute('data-weight');
+                    drawThread();
+                });
+            });
+
+            setupTemplates();
+
+            // Initial Draw for the active tab (ID)
+            drawIDCard(); 
+        });
     </script>
 </body>
 </html>
